@@ -44,12 +44,12 @@ const Contact = () => {
     <section
       id="contact"
       style={{
-        padding: '100px 0',
+        padding: '60px 0',
         background: 'var(--bg-primary)'
       }}
     >
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 className="display-md" style={{ marginBottom: '16px' }}>
             Get In Touch
           </h2>
@@ -66,47 +66,47 @@ const Contact = () => {
 
         <div
           style={{
-            maxWidth: '600px',
+            maxWidth: '500px',
             margin: '0 auto'
           }}
         >
           {/* Contact Form */}
-          <div className="feature-card">
+          <div className="feature-card" style={{ padding: '24px' }}>
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
-                marginBottom: '24px'
+                marginBottom: '20px'
               }}
             >
               <div
                 style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '12px',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '10px',
                   background: 'var(--accent-bg)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}
               >
-                <Mail size={24} color="var(--accent-primary)" />
+                <Mail size={20} color="var(--accent-primary)" />
               </div>
-              <h3 className="h2">Send a Message</h3>
+              <h3 className="h3">Send a Message</h3>
             </div>
 
             {submitted ? (
               <div
                 style={{
-                  padding: '48px',
+                  padding: '32px',
                   textAlign: 'center',
                   background: 'var(--accent-bg)',
                   borderRadius: '12px',
                   border: '1px solid var(--accent-primary)'
                 }}
               >
-                <CheckCircle2 size={48} color="var(--accent-primary)" style={{ marginBottom: '16px' }} />
+                <CheckCircle2 size={40} color="var(--accent-primary)" style={{ marginBottom: '12px' }} />
                 <h3 className="h3" style={{ marginBottom: '8px', color: 'var(--accent-primary)' }}>
                   Message Sent!
                 </h3>
@@ -114,12 +114,12 @@ const Contact = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: '20px' }}>
+                <div style={{ marginBottom: '16px' }}>
                   <label
                     htmlFor="name"
                     style={{
                       display: 'block',
-                      marginBottom: '8px',
+                      marginBottom: '6px',
                       fontSize: '14px',
                       fontWeight: '600',
                       color: 'var(--text-secondary)'
@@ -136,11 +136,11 @@ const Contact = () => {
                     required
                     style={{
                       width: '100%',
-                      padding: '16px 20px',
+                      padding: '12px 16px',
                       background: 'var(--bg-tertiary)',
                       border: '2px solid var(--border-primary)',
-                      borderRadius: '12px',
-                      fontSize: '16px',
+                      borderRadius: '10px',
+                      fontSize: '15px',
                       color: 'var(--text-primary)',
                       transition: 'all 0.2s ease',
                       outline: 'none'
@@ -156,12 +156,12 @@ const Contact = () => {
                   />
                 </div>
 
-                <div style={{ marginBottom: '20px' }}>
+                <div style={{ marginBottom: '16px' }}>
                   <label
                     htmlFor="email"
                     style={{
                       display: 'block',
-                      marginBottom: '8px',
+                      marginBottom: '6px',
                       fontSize: '14px',
                       fontWeight: '600',
                       color: 'var(--text-secondary)'
@@ -178,11 +178,53 @@ const Contact = () => {
                     required
                     style={{
                       width: '100%',
-                      padding: '16px 20px',
+                      padding: '12px 16px',
                       background: 'var(--bg-tertiary)',
                       border: '2px solid var(--border-primary)',
-                      borderRadius: '12px',
-                      fontSize: '16px',
+                      borderRadius: '10px',
+                      fontSize: '15px',
+                      color: 'var(--text-primary)',
+                      transition: 'all 0.2s ease',
+                      outline: 'none'
+                    }}
+                    onFocus={(e) => {
+                      e.target.style.borderColor = 'var(--accent-primary)';
+                      e.target.style.boxShadow = '0 0 0 4px rgba(218, 255, 1, 0.1)';
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = 'var(--border-primary)';
+                      e.target.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
+
+                <div style={{ marginBottom: '16px' }}>
+                  <label
+                    htmlFor="subject"
+                    style={{
+                      display: 'block',
+                      marginBottom: '6px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'var(--text-secondary)'
+                    }}
+                  >
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '12px 16px',
+                      background: 'var(--bg-tertiary)',
+                      border: '2px solid var(--border-primary)',
+                      borderRadius: '10px',
+                      fontSize: '15px',
                       color: 'var(--text-primary)',
                       transition: 'all 0.2s ease',
                       outline: 'none'
@@ -200,52 +242,10 @@ const Contact = () => {
 
                 <div style={{ marginBottom: '20px' }}>
                   <label
-                    htmlFor="subject"
-                    style={{
-                      display: 'block',
-                      marginBottom: '8px',
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: 'var(--text-secondary)'
-                    }}
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '16px 20px',
-                      background: 'var(--bg-tertiary)',
-                      border: '2px solid var(--border-primary)',
-                      borderRadius: '12px',
-                      fontSize: '16px',
-                      color: 'var(--text-primary)',
-                      transition: 'all 0.2s ease',
-                      outline: 'none'
-                    }}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = 'var(--accent-primary)';
-                      e.target.style.boxShadow = '0 0 0 4px rgba(218, 255, 1, 0.1)';
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = 'var(--border-primary)';
-                      e.target.style.boxShadow = 'none';
-                    }}
-                  />
-                </div>
-
-                <div style={{ marginBottom: '24px' }}>
-                  <label
                     htmlFor="message"
                     style={{
                       display: 'block',
-                      marginBottom: '8px',
+                      marginBottom: '6px',
                       fontSize: '14px',
                       fontWeight: '600',
                       color: 'var(--text-secondary)'
@@ -259,14 +259,14 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="6"
+                    rows="4"
                     style={{
                       width: '100%',
-                      padding: '16px 20px',
+                      padding: '12px 16px',
                       background: 'var(--bg-tertiary)',
                       border: '2px solid var(--border-primary)',
-                      borderRadius: '12px',
-                      fontSize: '16px',
+                      borderRadius: '10px',
+                      fontSize: '15px',
                       color: 'var(--text-primary)',
                       transition: 'all 0.2s ease',
                       outline: 'none',
