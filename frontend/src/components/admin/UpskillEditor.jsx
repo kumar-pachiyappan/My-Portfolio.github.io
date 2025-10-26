@@ -209,7 +209,7 @@ const UpskillEditor = () => {
             <div>
               <label className="body-md" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Status</label>
               <select
-                value={formData.status || 'In Progress'}
+                value={formData.status || 'Basic'}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value })}
                 style={{
                   width: '100%',
@@ -222,9 +222,9 @@ const UpskillEditor = () => {
                   outline: 'none'
                 }}
               >
-                <option value="In Progress">In Progress</option>
-                <option value="Active">Active</option>
-                <option value="Planned">Planned</option>
+                <option value="Basic">Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Expert">Expert</option>
               </select>
             </div>
           </div>
@@ -251,47 +251,24 @@ const UpskillEditor = () => {
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            <div>
-              <label className="body-md" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Progress (%)</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                value={formData.progress || 0}
-                onChange={(e) => setFormData({ ...formData, progress: Math.min(100, Math.max(0, parseInt(e.target.value) || 0)) })}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  background: 'var(--bg-tertiary)',
-                  border: '2px solid var(--border-primary)',
-                  borderRadius: '8px',
-                  color: 'var(--text-primary)',
-                  fontSize: '15px',
-                  outline: 'none'
-                }}
-              />
-            </div>
-
-            <div>
-              <label className="body-md" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Target Date</label>
-              <input
-                type="text"
-                value={formData.estimatedCompletion || ''}
-                onChange={(e) => setFormData({ ...formData, estimatedCompletion: e.target.value })}
-                placeholder="e.g., June 2025"
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  background: 'var(--bg-tertiary)',
-                  border: '2px solid var(--border-primary)',
-                  borderRadius: '8px',
-                  color: 'var(--text-primary)',
-                  fontSize: '15px',
-                  outline: 'none'
-                }}
-              />
-            </div>
+          <div>
+            <label className="body-md" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Target Date</label>
+            <input
+              type="text"
+              value={formData.estimatedCompletion || ''}
+              onChange={(e) => setFormData({ ...formData, estimatedCompletion: e.target.value })}
+              placeholder="e.g., June 2025"
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                background: 'var(--bg-tertiary)',
+                border: '2px solid var(--border-primary)',
+                borderRadius: '8px',
+                color: 'var(--text-primary)',
+                fontSize: '15px',
+                outline: 'none'
+              }}
+            />
           </div>
 
           <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
