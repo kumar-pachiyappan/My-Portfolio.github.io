@@ -8,7 +8,10 @@ const ProfileEditor = () => {
   const [saved, setSaved] = useState(false);
 
   const handleSave = () => {
-    // TODO: Save to Firebase
+    // Save to localStorage
+    localStorage.setItem('portfolioProfile', JSON.stringify(profile));
+    localStorage.setItem('portfolioAbout', JSON.stringify(about));
+    
     console.log('Saving profile:', profile, about);
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
