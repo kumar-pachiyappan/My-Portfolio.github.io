@@ -52,7 +52,7 @@ const About = () => {
 
         {/* Animated Modal */}
         <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-          <h2 className="h1" style={{ marginBottom: '24px' }}>About Kumar Pachiyappan</h2>
+          <h2 className="h1" style={{ marginBottom: '24px' }}>About Me</h2>
           
           <p className="body-lg" style={{ marginBottom: '32px', whiteSpace: 'pre-line', lineHeight: 1.8 }}>
             {aboutData.fullBio}
