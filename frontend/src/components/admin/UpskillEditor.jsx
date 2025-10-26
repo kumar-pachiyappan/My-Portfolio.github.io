@@ -40,8 +40,7 @@ const UpskillEditor = () => {
     setFormData({
       title: '',
       category: '',
-      status: 'In Progress',
-      progress: 0,
+      status: 'Basic',
       description: '',
       estimatedCompletion: ''
     });
