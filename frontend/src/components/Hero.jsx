@@ -55,8 +55,8 @@ const Hero = () => {
         {/* Profile Image with Glow */}
         <div
           style={{
-            width: '180px',
-            height: '180px',
+            width: '220px',
+            height: '220px',
             margin: '0 auto 32px',
             borderRadius: '50%',
             border: '3px solid var(--accent-primary)',
