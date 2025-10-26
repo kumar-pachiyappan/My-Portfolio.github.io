@@ -17,15 +17,21 @@ const UpskillEditor = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this upskill item?')) {
-      setUpskills(upskills.filter(u => u.id !== id));
+      const filtered = upskills.filter(u => u.id !== id);
+      setUpskills(filtered);
+      localStorage.setItem('portfolioUpskills', JSON.stringify(filtered));
     }
   };
 
   const handleSave = () => {
     if (editingId) {
-      setUpskills(upskills.map(u => u.id === editingId ? formData : u));
+      const updated = upskills.map(u => u.id === editingId ? formData : u);
+      setUpskills(updated);
+      localStorage.setItem('portfolioUpskills', JSON.stringify(updated));
     } else {
-      setUpskills([...upskills, { ...formData, id: Date.now() }]);
+      const newUpskill = [...upskills, { ...formData, id: Date.now() }];
+      setUpskills(newUpskill);
+      localStorage.setItem('portfolioUpskills', JSON.stringify(newUpskill));
     }
     handleClose();
   };
