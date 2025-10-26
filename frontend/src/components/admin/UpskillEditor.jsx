@@ -112,33 +112,6 @@ const UpskillEditor = () => {
             <h3 className="h3" style={{ marginBottom: '12px', fontSize: '18px' }}>{item.title}</h3>
             <p className="body-md" style={{ marginBottom: '20px', fontSize: '14px' }}>{item.description}</p>
 
-            {/* Progress Bar */}
-            <div style={{ marginBottom: '16px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: '600' }}>Progress</span>
-                <span style={{ fontSize: '13px', color: 'var(--accent-primary)', fontWeight: '600' }}>{item.progress}%</span>
-              </div>
-              <div
-                style={{
-                  width: '100%',
-                  height: '8px',
-                  background: 'var(--bg-tertiary)',
-                  borderRadius: '4px',
-                  overflow: 'hidden'
-                }}
-              >
-                <div
-                  style={{
-                    width: `${item.progress}%`,
-                    height: '100%',
-                    background: getStatusColor(item.status),
-                    transition: 'width 0.3s ease',
-                    borderRadius: '4px'
-                  }}
-                />
-              </div>
-            </div>
-
             <p className="body-md" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--text-muted)' }}>
               Target: {item.estimatedCompletion}
             </p>
