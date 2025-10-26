@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Welcome from '../components/Welcome';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Experience from '../components/Experience';
@@ -14,6 +15,7 @@ import '../styles/cyber-theme.css';
 const HomePage = () => {
   return (
     <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
+      <Welcome />
       <Navbar />
       <Hero />
       <About />
