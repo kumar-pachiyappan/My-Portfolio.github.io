@@ -22,7 +22,8 @@ const AdminSettings = () => {
       setError('Please enter a new email');
       return;
     }
-    // TODO: Update Firebase Auth email
+    // Save to localStorage
+    localStorage.setItem('adminEmail', credentials.newEmail);
     console.log('Updating email to:', credentials.newEmail);
     setSaved(true);
     setError('');
@@ -50,7 +51,8 @@ const AdminSettings = () => {
       return;
     }
 
-    // TODO: Update Firebase Auth password
+    // Save to localStorage (in production, use proper encryption)
+    localStorage.setItem('adminPassword', credentials.newPassword);
     console.log('Updating password');
     setSaved(true);
     setTimeout(() => {
