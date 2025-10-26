@@ -31,11 +31,10 @@ const Footer = () => {
                 fontSize: '28px',
                 fontWeight: '700',
                 color: 'var(--accent-primary)',
-                marginBottom: '16px',
-                fontFamily: 'monospace'
+                marginBottom: '16px'
               }}
             >
-              {'<KP />'}
+              Kumar Pachiyappan
             </h3>
             <p className="body-md" style={{ marginBottom: '24px', maxWidth: '300px' }}>
               Cybersecurity professional bridging telecom infrastructure and cyber defense.
