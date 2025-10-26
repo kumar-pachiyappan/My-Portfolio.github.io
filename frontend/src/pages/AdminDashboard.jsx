@@ -11,7 +11,8 @@ import {
   User,
   Code2,
   ArrowLeft,
-  Mail
+  Mail,
+  Settings
 } from 'lucide-react';
 import ProfileEditor from '../components/admin/ProfileEditor';
 import ExperienceEditor from '../components/admin/ExperienceEditor';
@@ -20,6 +21,7 @@ import ProjectsEditor from '../components/admin/ProjectsEditor';
 import UpskillEditor from '../components/admin/UpskillEditor';
 import BlogEditor from '../components/admin/BlogEditor';
 import ContactEditor from '../components/admin/ContactEditor';
+import AdminSettings from '../components/admin/AdminSettings';
 import '../styles/cyber-theme.css';
 
 const AdminDashboard = () => {
@@ -38,6 +40,7 @@ const AdminDashboard = () => {
     { id: 'upskill', icon: TrendingUp, title: 'Upskill Progress', description: 'Update learning progress', color: 'var(--accent-primary)', component: UpskillEditor },
     { id: 'blog', icon: MessageSquare, title: 'Blog Posts', description: 'Create and manage blog content', color: 'var(--accent-purple)', component: BlogEditor },
     { id: 'contact', icon: Mail, title: 'Contact & Skills', description: 'Manage contact info and skills', color: 'var(--accent-primary)', component: ContactEditor },
+    { id: 'settings', icon: Settings, title: 'Admin Settings', description: 'Change email and password', color: 'var(--accent-purple)', component: AdminSettings },
   ];
 
   const ActiveComponent = activeSection ? sections.find(s => s.id === activeSection)?.component : null;
