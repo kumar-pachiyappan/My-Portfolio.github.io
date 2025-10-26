@@ -12,7 +12,8 @@ import {
   Code2,
   ArrowLeft,
   Mail,
-  Settings
+  Settings,
+  Sparkles
 } from 'lucide-react';
 import ProfileEditor from '../components/admin/ProfileEditor';
 import ExperienceEditor from '../components/admin/ExperienceEditor';
@@ -21,6 +22,7 @@ import ProjectsEditor from '../components/admin/ProjectsEditor';
 import UpskillEditor from '../components/admin/UpskillEditor';
 import BlogEditor from '../components/admin/BlogEditor';
 import ContactEditor from '../components/admin/ContactEditor';
+import SkillsEditor from '../components/admin/SkillsEditor';
 import AdminSettings from '../components/admin/AdminSettings';
 import '../styles/cyber-theme.css';
 
