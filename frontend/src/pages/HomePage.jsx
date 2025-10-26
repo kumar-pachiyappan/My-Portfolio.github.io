@@ -7,6 +7,7 @@ import Experience from '../components/Experience';
 import Certifications from '../components/Certifications';
 import Projects from '../components/Projects';
 import Upskill from '../components/Upskill';
+import Skills from '../components/Skills';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -24,6 +25,7 @@ const HomePage = () => {
       <Projects />
       <Upskill />
       <Blog />
+      <Skills />
       <Contact />
       <Footer />
     </div>
