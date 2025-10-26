@@ -19,15 +19,21 @@ const CertificationsEditor = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this certification?')) {
-      setCertifications(certifications.filter(c => c.id !== id));
+      const filtered = certifications.filter(c => c.id !== id);
+      setCertifications(filtered);
+      localStorage.setItem('portfolioCertifications', JSON.stringify(filtered));
     }
   };
 
   const handleSave = () => {
     if (editingId) {
-      setCertifications(certifications.map(c => c.id === editingId ? { ...formData, image: previewImage } : c));
+      const updated = certifications.map(c => c.id === editingId ? { ...formData, image: previewImage } : c);
+      setCertifications(updated);
+      localStorage.setItem('portfolioCertifications', JSON.stringify(updated));
     } else {
-      setCertifications([...certifications, { ...formData, id: Date.now(), image: previewImage }]);
+      const newCert = [...certifications, { ...formData, id: Date.now(), image: previewImage }];
+      setCertifications(newCert);
+      localStorage.setItem('portfolioCertifications', JSON.stringify(newCert));
     }
     handleClose();
   };
