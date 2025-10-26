@@ -19,15 +19,21 @@ const ProjectsEditor = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
-      setProjects(projects.filter(p => p.id !== id));
+      const filtered = projects.filter(p => p.id !== id);
+      setProjects(filtered);
+      localStorage.setItem('portfolioProjects', JSON.stringify(filtered));
     }
   };
 
   const handleSave = () => {
     if (editingId) {
-      setProjects(projects.map(p => p.id === editingId ? { ...formData, image: previewImage } : p));
+      const updated = projects.map(p => p.id === editingId ? { ...formData, image: previewImage } : p);
+      setProjects(updated);
+      localStorage.setItem('portfolioProjects', JSON.stringify(updated));
     } else {
-      setProjects([...projects, { ...formData, id: Date.now(), image: previewImage }]);
+      const newProject = [...projects, { ...formData, id: Date.now(), image: previewImage }];
+      setProjects(newProject);
+      localStorage.setItem('portfolioProjects', JSON.stringify(newProject));
     }
     handleClose();
   };
