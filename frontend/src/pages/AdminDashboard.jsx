@@ -1,26 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LogOut, Upload, FileText, Award, Briefcase, BookOpen, TrendingUp } from 'lucide-react';
+import {
+  LogOut,
+  FileText,
+  Briefcase,
+  Award,
+  BookOpen,
+  TrendingUp,
+  MessageSquare,
+  User,
+  Code2,
+  ArrowLeft
+} from 'lucide-react';
+import ProfileEditor from '../components/admin/ProfileEditor';
+import ExperienceEditor from '../components/admin/ExperienceEditor';
+import CertificationsEditor from '../components/admin/CertificationsEditor';
+import ProjectsEditor from '../components/admin/ProjectsEditor';
+import UpskillEditor from '../components/admin/UpskillEditor';
+import BlogEditor from '../components/admin/BlogEditor';
 import '../styles/cyber-theme.css';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState(null);
 
   const handleLogout = () => {
     navigate('/');
   };
 
-  const dashboardCards = [
-    { icon: FileText, title: 'Profile & About', description: 'Edit personal information and bio', color: 'var(--accent-primary)' },
-    { icon: Briefcase, title: 'Experience', description: 'Manage work experience entries', color: 'var(--accent-purple)' },
-    { icon: Award, title: 'Certifications', description: 'Upload and manage certificates', color: 'var(--accent-primary)' },
-    { icon: BookOpen, title: 'Projects', description: 'Add or edit project details', color: 'var(--accent-purple)' },
-    { icon: TrendingUp, title: 'Upskill Progress', description: 'Update learning progress', color: 'var(--accent-primary)' },
-    { icon: Upload, title: 'Blog Posts', description: 'Create and manage blog content', color: 'var(--accent-purple)' },
+  const sections = [
+    { id: 'profile', icon: User, title: 'Profile & About', description: 'Edit personal information and bio', color: 'var(--accent-primary)', component: ProfileEditor },
+    { id: 'experience', icon: Briefcase, title: 'Experience', description: 'Manage work experience entries', color: 'var(--accent-purple)', component: ExperienceEditor },
+    { id: 'certifications', icon: Award, title: 'Certifications', description: 'Upload and manage certificates', color: 'var(--accent-primary)', component: CertificationsEditor },
+    { id: 'projects', icon: Code2, title: 'Projects', description: 'Add or edit project details', color: 'var(--accent-purple)', component: ProjectsEditor },
+    { id: 'upskill', icon: TrendingUp, title: 'Upskill Progress', description: 'Update learning progress', color: 'var(--accent-primary)', component: UpskillEditor },
+    { id: 'blog', icon: MessageSquare, title: 'Blog Posts', description: 'Create and manage blog content', color: 'var(--accent-purple)', component: BlogEditor },
   ];
 
+  const ActiveComponent = activeSection ? sections.find(s => s.id === activeSection)?.component : null;
+
   return (
-    <div className="cyber-bg" style={{ minHeight: '100vh', paddingTop: '80px' }}>
+    <div className="cyber-bg" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '40px' }}>
       {/* Header */}
       <div
         style={{
@@ -35,8 +55,19 @@ const AdminDashboard = () => {
           zIndex: 1000
         }}
       >
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h1 className="h1">Admin Dashboard</h1>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            {activeSection && (
+              <button
+                onClick={() => setActiveSection(null)}
+                className="btn-ghost"
+                style={{ padding: '8px' }}
+              >
+                <ArrowLeft size={20} />
+              </button>
+            )}
+            <h1 className="h1">{activeSection ? sections.find(s => s.id === activeSection)?.title : 'Admin Dashboard'}</h1>
+          </div>
           <button
             onClick={handleLogout}
             className="btn-secondary"
@@ -47,73 +78,65 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      <div className="container" style={{ paddingBottom: '80px' }}>
-        <div style={{ marginBottom: '40px' }}>
-          <p className="body-lg" style={{ marginBottom: '8px' }}>Welcome back, Kumar!</p>
-          <p className="body-md" style={{ color: 'var(--text-muted)' }}>Manage your portfolio content from here</p>
-        </div>
-
-        {/* Dashboard Cards */}
-        <div className="card-grid">
-          {dashboardCards.map((card, index) => (
-            <div
-              key={index}
-              className="feature-card"
-              style={{
-                cursor: 'pointer',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start'
-              }}
-            >
-              <div
-                style={{
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '12px',
-                  background: `${card.color}15`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}
-              >
-                <card.icon size={28} color={card.color} />
-              </div>
-              <h3 className="h3" style={{ marginBottom: '8px' }}>{card.title}</h3>
-              <p className="body-md" style={{ marginBottom: '20px', flex: 1 }}>{card.description}</p>
-              <div
-                style={{
-                  padding: '10px 20px',
-                  background: 'var(--accent-bg)',
-                  borderRadius: '8px',
-                  color: 'var(--accent-primary)',
-                  fontWeight: '600',
-                  fontSize: '14px'
-                }}
-              >
-                Manage →
-              </div>
+      <div className="container">
+        {!activeSection ? (
+          <>
+            <div style={{ marginBottom: '40px' }}>
+              <p className="body-lg" style={{ marginBottom: '8px' }}>Welcome back, Kumar!</p>
+              <p className="body-md" style={{ color: 'var(--text-muted)' }}>Manage your portfolio content from here</p>
             </div>
-          ))}
-        </div>
 
-        {/* Placeholder Note */}
-        <div
-          className="feature-card"
-          style={{
-            marginTop: '48px',
-            textAlign: 'center',
-            padding: '48px'
-          }}
-        >
-          <Upload size={48} color="var(--accent-primary)" style={{ marginBottom: '16px' }} />
-          <h3 className="h2" style={{ marginBottom: '12px' }}>Full Admin Functionality Coming Soon</h3>
-          <p className="body-lg" style={{ color: 'var(--text-muted)' }}>
-            Firebase integration will enable complete CRUD operations for all portfolio sections.
-            Image uploads, content management, and real-time updates will be available shortly.
-          </p>
-        </div>
+            {/* Dashboard Cards */}
+            <div className="card-grid">
+              {sections.map((section) => (
+                <div
+                  key={section.id}
+                  className="feature-card"
+                  style={{
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start'
+                  }}
+                  onClick={() => setActiveSection(section.id)}
+                >
+                  <div
+                    style={{
+                      width: '56px',
+                      height: '56px',
+                      borderRadius: '12px',
+                      background: `${section.color}15`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}
+                  >
+                    <section.icon size={28} color={section.color} />
+                  </div>
+                  <h3 className="h3" style={{ marginBottom: '8px' }}>{section.title}</h3>
+                  <p className="body-md" style={{ marginBottom: '20px', flex: 1 }}>{section.description}</p>
+                  <div
+                    style={{
+                      padding: '10px 20px',
+                      background: 'var(--accent-bg)',
+                      borderRadius: '8px',
+                      color: 'var(--accent-primary)',
+                      fontWeight: '600',
+                      fontSize: '14px'
+                    }}
+                  >
+                    Manage →
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div style={{ marginTop: '40px' }}>
+            {ActiveComponent && <ActiveComponent />}
+          </div>
+        )}
       </div>
     </div>
   );
