@@ -34,6 +34,24 @@ const Hero = () => {
       />
 
       <div className="container" style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        {/* Welcome Banner */}
+        <div
+          className="animate-fade-in"
+          style={{
+            display: 'inline-block',
+            background: 'var(--bg-secondary)',
+            border: '1px solid var(--accent-primary)',
+            borderRadius: '16px',
+            padding: '16px 32px',
+            marginBottom: '32px',
+            boxShadow: '0 0 30px rgba(218, 255, 1, 0.2)'
+          }}
+        >
+          <p className="body-lg" style={{ color: 'var(--accent-primary)', fontWeight: '600', margin: 0 }}>
+            👋 Welcome to my Website!
+          </p>
+        </div>
+
         {/* Profile Image with Glow */}
         <div
           style={{
