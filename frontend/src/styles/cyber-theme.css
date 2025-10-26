@@ -276,9 +276,51 @@ body {
   .display-lg { font-size: 36px; }
   .display-md { font-size: 32px; }
   .h1 { font-size: 28px; }
+  .h2 { font-size: 20px; }
+  .h3 { font-size: 18px; }
   .container { padding: 0 16px; }
   .card-grid { grid-template-columns: 1fr; gap: 16px; }
   .feature-card { padding: 24px; }
+  
+  /* Buttons full width on mobile */
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* Hero section improvements */
+  #home {
+    padding: 120px 16px 60px;
+    min-height: 100vh;
+  }
+  
+  /* Section padding */
+  section {
+    padding: 60px 0 !important;
+  }
+  
+  /* Text alignment */
+  .body-lg {
+    font-size: 16px;
+  }
+  
+  .body-md {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .display-lg { font-size: 32px; }
+  .display-md { font-size: 28px; }
+  .h1 { font-size: 24px; }
+  .h2 { font-size: 18px; }
+  
+  .feature-card { padding: 20px; }
+  
+  /* Adjust spacing on small mobile */
+  section {
+    padding: 48px 0 !important;
+  }
 }
 
 /* Loader Animation */
