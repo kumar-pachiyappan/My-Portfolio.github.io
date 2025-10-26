@@ -183,7 +183,7 @@ const Footer = () => {
           }}
         >
           <p className="body-md" style={{ color: 'var(--text-muted)' }}>
-            © {currentYear} {profileData.name}. Built with React & Firebase. Secured with passion.
+            © {currentYear} {profileData.name}. Secured with passion.
           </p>
         </div>
       </div>
