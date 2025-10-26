@@ -53,18 +53,6 @@ const Navbar = () => {
       <div className="container" style={{ padding: '16px 24px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           {/* Logo - Removed as per user request */}
-          <a
-            href="#home"
-            onClick={(e) => handleNavClick(e, '#home')}
-            style={{
-              fontSize: '18px',
-              fontWeight: '600',
-              color: 'var(--text-primary)',
-              textDecoration: 'none'
-            }}
-          >
-            Kumar Pachiyappan
-          </a>
 
           {/* Desktop Menu */}
           <div style={{ display: 'none', gap: '32px', alignItems: 'center' }} className="desktop-menu">
