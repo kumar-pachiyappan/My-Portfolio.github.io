@@ -16,15 +16,21 @@ const ExperienceEditor = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this experience?')) {
-      setExperiences(experiences.filter(e => e.id !== id));
+      const filtered = experiences.filter(e => e.id !== id);
+      setExperiences(filtered);
+      localStorage.setItem('portfolioExperiences', JSON.stringify(filtered));
     }
   };
 
   const handleSave = () => {
     if (editingId) {
-      setExperiences(experiences.map(e => e.id === editingId ? formData : e));
+      const updated = experiences.map(e => e.id === editingId ? formData : e);
+      setExperiences(updated);
+      localStorage.setItem('portfolioExperiences', JSON.stringify(updated));
     } else {
-      setExperiences([...experiences, { ...formData, id: Date.now() }]);
+      const newExp = [...experiences, { ...formData, id: Date.now() }];
+      setExperiences(newExp);
+      localStorage.setItem('portfolioExperiences', JSON.stringify(newExp));
     }
     setShowForm(false);
     setEditingId(null);
