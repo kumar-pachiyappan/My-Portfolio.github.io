@@ -268,7 +268,7 @@ export const upskillData = [
     id: 1,
     title: "CompTIA Security+ (SY0-701)",
     category: "Certification Prep",
-    status: "In Progress",
+    status: "Intermediate",
     progress: 65,
     description: "Comprehensive cybersecurity certification covering threats, vulnerabilities, and security controls.",
     estimatedCompletion: "June 2025"
@@ -277,7 +277,7 @@ export const upskillData = [
     id: 2,
     title: "Agentic AI & Security",
     category: "Emerging Tech",
-    status: "Active",
+    status: "Basic",
     progress: 40,
     description: "Exploring AI agents for security automation, threat detection, and incident response.",
     estimatedCompletion: "Ongoing"
@@ -286,7 +286,7 @@ export const upskillData = [
     id: 3,
     title: "FAIR Foundation Risk Analysis",
     category: "Risk Management",
-    status: "Active",
+    status: "Basic",
     progress: 30,
     description: "Learning Factor Analysis of Information Risk (FAIR) for quantitative risk assessment.",
     estimatedCompletion: "August 2025"
@@ -295,7 +295,7 @@ export const upskillData = [
     id: 4,
     title: "Cloud Security (AWS/Azure)",
     category: "Cloud",
-    status: "Planned",
+    status: "Basic",
     progress: 15,
     description: "Advanced cloud security concepts, identity management, and compliance in cloud environments.",
     estimatedCompletion: "Q4 2025"
