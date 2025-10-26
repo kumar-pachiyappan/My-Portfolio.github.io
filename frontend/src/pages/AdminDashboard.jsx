@@ -39,10 +39,11 @@ const AdminDashboard = () => {
     { id: 'experience', icon: Briefcase, title: 'Experience', description: 'Manage work experience entries', color: 'var(--accent-purple)', component: ExperienceEditor },
     { id: 'certifications', icon: Award, title: 'Certifications', description: 'Upload and manage certificates', color: 'var(--accent-primary)', component: CertificationsEditor },
     { id: 'projects', icon: Code2, title: 'Projects', description: 'Add or edit project details', color: 'var(--accent-purple)', component: ProjectsEditor },
-    { id: 'upskill', icon: TrendingUp, title: 'Upskill Progress', description: 'Update learning progress', color: 'var(--accent-primary)', component: UpskillEditor },
-    { id: 'blog', icon: MessageSquare, title: 'Blog Posts', description: 'Create and manage blog content', color: 'var(--accent-purple)', component: BlogEditor },
-    { id: 'contact', icon: Mail, title: 'Contact & Skills', description: 'Manage contact info and skills', color: 'var(--accent-primary)', component: ContactEditor },
-    { id: 'settings', icon: Settings, title: 'Admin Settings', description: 'Change email and password', color: 'var(--accent-purple)', component: AdminSettings },
+    { id: 'skills', icon: Sparkles, title: 'Skills & Expertise', description: 'Manage technical skills and expertise', color: 'var(--accent-primary)', component: SkillsEditor },
+    { id: 'upskill', icon: TrendingUp, title: 'Upskill Progress', description: 'Update learning progress', color: 'var(--accent-purple)', component: UpskillEditor },
+    { id: 'blog', icon: MessageSquare, title: 'Blog Posts', description: 'Create and manage blog content', color: 'var(--accent-primary)', component: BlogEditor },
+    { id: 'contact', icon: Mail, title: 'Contact Info', description: 'Manage contact information', color: 'var(--accent-purple)', component: ContactEditor },
+    { id: 'settings', icon: Settings, title: 'Admin Settings', description: 'Change email and password', color: 'var(--accent-primary)', component: AdminSettings },
   ];
 
   const ActiveComponent = activeSection ? sections.find(s => s.id === activeSection)?.component : null;
