@@ -14,7 +14,18 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock submission - will be replaced with backend integration
+    
+    // Save to localStorage
+    const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+    const newMessage = {
+      id: Date.now(),
+      ...formData,
+      timestamp: new Date().toISOString()
+    };
+    messages.push(newMessage);
+    localStorage.setItem('contactMessages', JSON.stringify(messages));
+    
+    // Show success message
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
