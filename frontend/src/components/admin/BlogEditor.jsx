@@ -19,15 +19,21 @@ const BlogEditor = () => {
 
   const handleDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this blog post?')) {
-      setBlogs(blogs.filter(b => b.id !== id));
+      const filtered = blogs.filter(b => b.id !== id);
+      setBlogs(filtered);
+      localStorage.setItem('portfolioBlogs', JSON.stringify(filtered));
     }
   };
 
   const handleSave = () => {
     if (editingId) {
-      setBlogs(blogs.map(b => b.id === editingId ? { ...formData, image: previewImage } : b));
+      const updated = blogs.map(b => b.id === editingId ? { ...formData, image: previewImage } : b);
+      setBlogs(updated);
+      localStorage.setItem('portfolioBlogs', JSON.stringify(updated));
     } else {
-      setBlogs([...blogs, { ...formData, id: Date.now(), image: previewImage }]);
+      const newBlog = [...blogs, { ...formData, id: Date.now(), image: previewImage }];
+      setBlogs(newBlog);
+      localStorage.setItem('portfolioBlogs', JSON.stringify(newBlog));
     }
     handleClose();
   };
