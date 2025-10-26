@@ -52,19 +52,18 @@ const Navbar = () => {
     >
       <div className="container" style={{ padding: '16px 24px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          {/* Logo */}
+          {/* Logo - Removed as per user request */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, '#home')}
             style={{
-              fontSize: '24px',
-              fontWeight: '700',
-              color: 'var(--accent-primary)',
-              textDecoration: 'none',
-              fontFamily: 'monospace'
+              fontSize: '18px',
+              fontWeight: '600',
+              color: 'var(--text-primary)',
+              textDecoration: 'none'
             }}
           >
-            {'<KP />'}
+            Kumar Pachiyappan
           </a>
 
           {/* Desktop Menu */}
