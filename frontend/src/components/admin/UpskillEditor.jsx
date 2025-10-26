@@ -210,7 +210,16 @@ const UpskillEditor = () => {
               <label className="body-md" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Status</label>
               <select
                 value={formData.status || 'Basic'}
-                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                onChange={(e) => {
+                  if (e.target.value === 'custom') {
+                    const custom = prompt('Enter custom status level:');
+                    if (custom) {
+                      setFormData({ ...formData, status: custom });
+                    }
+                  } else {
+                    setFormData({ ...formData, status: e.target.value });
+                  }
+                }}
                 style={{
                   width: '100%',
                   padding: '12px 16px',
@@ -225,7 +234,13 @@ const UpskillEditor = () => {
                 <option value="Basic">Basic</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Expert">Expert</option>
+                <option value="custom">+ Add Custom...</option>
               </select>
+              {formData.status && !['Basic', 'Intermediate', 'Expert'].includes(formData.status) && (
+                <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--accent-primary)' }}>
+                  Custom: {formData.status}
+                </p>
+              )}
             </div>
           </div>
 
