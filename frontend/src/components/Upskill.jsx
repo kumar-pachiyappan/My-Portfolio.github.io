@@ -96,37 +96,6 @@ const Upskill = () => {
                 {item.description}
               </p>
 
-              {/* Progress Bar */}
-              <div style={{ marginBottom: '12px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '14px', color: 'var(--text-secondary)', fontWeight: '600' }}>
-                    Progress
-                  </span>
-                  <span style={{ fontSize: '14px', color: 'var(--accent-primary)', fontWeight: '600' }}>
-                    {item.progress}%
-                  </span>
-                </div>
-                <div
-                  style={{
-                    width: '100%',
-                    height: '8px',
-                    background: 'var(--bg-tertiary)',
-                    borderRadius: '4px',
-                    overflow: 'hidden'
-                  }}
-                >
-                  <div
-                    style={{
-                      width: `${item.progress}%`,
-                      height: '100%',
-                      background: `linear-gradient(90deg, ${getStatusColor(item.status)}, var(--accent-primary))`,
-                      transition: 'width 0.5s ease',
-                      borderRadius: '4px'
-                    }}
-                  />
-                </div>
-              </div>
-
               {/* Estimated Completion */}
               <div
                 style={{
