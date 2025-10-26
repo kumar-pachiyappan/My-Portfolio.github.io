@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Code2, Network, Shield, Terminal } from 'lucide-react';
-import { skillsData } from '../data/mock';
+import { skillsData as defaultSkillsData } from '../data/mock';
 import '../styles/cyber-theme.css';
 
 const Skills = () => {
+  const [skillsData, setSkillsData] = useState(defaultSkillsData);
+
+  useEffect(() => {
+    const savedSkills = localStorage.getItem('portfolioSkills');
+    if (savedSkills) {
+      setSkillsData(JSON.parse(savedSkills));
+    }
+  }, []);
+
   const skillCategories = [
     { key: 'cybersecurity', icon: Shield, title: 'Cybersecurity', color: 'var(--accent-primary)' },
     { key: 'networking', icon: Network, title: 'Networking', color: 'var(--accent-purple)' },
