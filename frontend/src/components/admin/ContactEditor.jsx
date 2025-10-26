@@ -13,7 +13,10 @@ const ContactEditor = () => {
   const [saved, setSaved] = useState(false);
 
   const handleSave = () => {
-    // TODO: Save to Firebase
+    // Save to localStorage
+    localStorage.setItem('portfolioContact', JSON.stringify(contact));
+    localStorage.setItem('portfolioSkills', JSON.stringify(skills));
+    
     console.log('Saving contact info:', contact, skills);
     setSaved(true);
     setTimeout(() => setSaved(false), 3000);
