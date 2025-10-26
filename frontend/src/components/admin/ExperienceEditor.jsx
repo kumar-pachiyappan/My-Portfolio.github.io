@@ -152,7 +152,16 @@ const ExperienceEditor = () => {
               <label className="body-md" style={{ display: 'block', marginBottom: '8px', fontWeight: '600' }}>Type</label>
               <select
                 value={formData.type || 'professional'}
-                onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                onChange={(e) => {
+                  if (e.target.value === 'custom') {
+                    const custom = prompt('Enter custom type:');
+                    if (custom) {
+                      setFormData({ ...formData, type: custom });
+                    }
+                  } else {
+                    setFormData({ ...formData, type: e.target.value });
+                  }
+                }}
                 style={{
                   width: '100%',
                   padding: '12px 16px',
@@ -166,7 +175,13 @@ const ExperienceEditor = () => {
               >
                 <option value="professional">Professional</option>
                 <option value="virtual">Virtual Experience</option>
+                <option value="custom">+ Add Custom...</option>
               </select>
+              {formData.type && formData.type !== 'professional' && formData.type !== 'virtual' && (
+                <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--accent-primary)' }}>
+                  Custom: {formData.type}
+                </p>
+              )}
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
