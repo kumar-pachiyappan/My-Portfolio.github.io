@@ -6,12 +6,12 @@ import '../styles/cyber-theme.css';
 const Upskill = () => {
   const getStatusColor = (status) => {
     switch (status) {
-      case 'In Progress':
+      case 'Basic':
         return 'var(--accent-primary)';
-      case 'Active':
+      case 'Intermediate':
         return 'var(--accent-purple)';
-      case 'Planned':
-        return 'var(--text-muted)';
+      case 'Expert':
+        return 'rgb(34, 197, 94)'; // green
       default:
         return 'var(--text-secondary)';
     }
