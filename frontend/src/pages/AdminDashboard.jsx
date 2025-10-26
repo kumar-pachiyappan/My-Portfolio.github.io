@@ -10,7 +10,8 @@ import {
   MessageSquare,
   User,
   Code2,
-  ArrowLeft
+  ArrowLeft,
+  Mail
 } from 'lucide-react';
 import ProfileEditor from '../components/admin/ProfileEditor';
 import ExperienceEditor from '../components/admin/ExperienceEditor';
@@ -18,6 +19,7 @@ import CertificationsEditor from '../components/admin/CertificationsEditor';
 import ProjectsEditor from '../components/admin/ProjectsEditor';
 import UpskillEditor from '../components/admin/UpskillEditor';
 import BlogEditor from '../components/admin/BlogEditor';
+import ContactEditor from '../components/admin/ContactEditor';
 import '../styles/cyber-theme.css';
 
 const AdminDashboard = () => {
@@ -35,6 +37,7 @@ const AdminDashboard = () => {
     { id: 'projects', icon: Code2, title: 'Projects', description: 'Add or edit project details', color: 'var(--accent-purple)', component: ProjectsEditor },
     { id: 'upskill', icon: TrendingUp, title: 'Upskill Progress', description: 'Update learning progress', color: 'var(--accent-primary)', component: UpskillEditor },
     { id: 'blog', icon: MessageSquare, title: 'Blog Posts', description: 'Create and manage blog content', color: 'var(--accent-purple)', component: BlogEditor },
+    { id: 'contact', icon: Mail, title: 'Contact & Skills', description: 'Manage contact info and skills', color: 'var(--accent-primary)', component: ContactEditor },
   ];
 
   const ActiveComponent = activeSection ? sections.find(s => s.id === activeSection)?.component : null;
