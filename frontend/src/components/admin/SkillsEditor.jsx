@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Save, Plus, Trash2, Shield, Network, Code2, Terminal } from 'lucide-react';
 import { skillsData } from '../../data/mock';
-import useLocalStorage from '../../hooks/useLocalStorage';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 const SkillsEditor = () => {
   const [skills, setSkills] = useLocalStorage('portfolioSkills', skillsData);
