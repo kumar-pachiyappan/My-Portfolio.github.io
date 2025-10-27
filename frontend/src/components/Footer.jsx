@@ -134,7 +134,7 @@ const Footer = () => {
           <div>
             <h4 className="h3" style={{ marginBottom: '20px' }}>Quick Links</h4>
             <ul style={{ listStyle: 'none', padding: 0 }}>
-              {['Home', 'About', 'Experience', 'Projects', 'Contact'].map((link) => (
+              {['Home', 'About', 'Experience', 'Projects', 'Blog'].map((link) => (
                 <li key={link} style={{ marginBottom: '12px' }}>
                   <a
                     href={`#${link.toLowerCase()}`}
