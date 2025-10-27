@@ -149,9 +149,6 @@ const Hero = () => {
             <Download size={20} />
             Download Resume
           </a>
-          <a href="#contact" className="btn-secondary">
-            Get In Touch
-          </a>
         </div>
       </div>
 
