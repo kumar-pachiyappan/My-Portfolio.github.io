@@ -8,7 +8,6 @@ import Projects from '../components/Projects';
 import Upskill from '../components/Upskill';
 import Skills from '../components/Skills';
 import Blog from '../components/Blog';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import '../styles/cyber-theme.css';
 
@@ -24,7 +23,6 @@ const HomePage = () => {
       <Upskill />
       <Blog />
       <Skills />
-      <Contact />
       <Footer />
     </div>
   );
